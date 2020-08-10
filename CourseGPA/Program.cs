@@ -27,19 +27,23 @@ namespace CourseGPA
                 Console.WriteLine("Enter the course grade.");
                 // save the course grade
                 string grade = Console.ReadLine().ToUpper();
-                // add to accumulator - if
-                if (grade == "A")
+                // add to accumulator - switch
+                switch(grade)
                 {
-                   gradePoints += 4;
-                } else if (grade == "B")
-                {
-                   gradePoints += 3;
-                } else if (grade == "C")
-                {
-                   gradePoints += 2;
-                } else if (grade == "D")
-                {
-                   gradePoints += 1;
+                   case "A":
+                       gradePoints += 4;
+                       break;
+                   case "B":
+                       gradePoints += 3;
+                       break;
+                   case "C":
+                       gradePoints += 2;
+                       break;
+                   case "D":
+                       gradePoints += 1;
+                       break;
+                   default:
+                       break;
                 }
             }
             // calculate GPA
