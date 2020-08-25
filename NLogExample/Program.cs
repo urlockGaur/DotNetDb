@@ -1,4 +1,6 @@
 ﻿using System;
+using NLog.Web;
+using System.IO;
 
 namespace NLogExample
 {
@@ -6,7 +8,18 @@ namespace NLogExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string path = Directory.GetCurrentDirectory() + "\\nlog.config";
+
+            // create instance of Logger
+            var logger = NLog.Web.NLogBuilder.ConfigureNLog(path).GetCurrentClassLogger();
+
+            // log sample messages
+            logger.Trace("Sample trace message");
+            logger.Debug("Sample debug message");
+            logger.Info("Sample informational message");
+            logger.Warn("Sample warning message");
+            logger.Error("Sample error message");
+            logger.Fatal("Sample fatal error message");
         }
     }
 }
